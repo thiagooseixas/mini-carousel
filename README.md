@@ -1,1 +1,24 @@
 # mini-carousel
+
+Mini project to build carousel of products
+
+## Getting Started
+
+Mini Project using:
+- NodeJS 
+- React
+- Lib external - [Slick](https://react-slick.neostack.com/)
+
+### Running API
+
+```
+cd api && npm start
+```
+
+### Running Web app
+
+```
+cd web && npm start
+```
+enjoy
+
