@@ -51,16 +51,14 @@ class App extends Component {
 
         products.push(
           <div key={productRecommendation.businessId.toString()} className="App-box txt-center">
-            <div className="">
-              <img src={productRecommendation.imageName} alt="" className="App-img" />
-              <label>{productRecommendation.name}</label>
-              <div className="mt-10">
-                De: {productRecommendation.oldPrice} <br />
-              </div>
-              <div className="text-red">
-                Por: {productRecommendation.price}
-                <div dangerouslySetInnerHTML={{ __html: productRecommendation.productInfo.paymentConditions + ' sem juros' }}></div>
-              </div>
+            <img src={productRecommendation.imageName} alt="" className="App-img" />
+            <label>{productRecommendation.name}</label>
+            <div className="mt-10">
+              De: {productRecommendation.oldPrice}
+            </div>
+            <div className="text-red">
+              Por: {productRecommendation.price}
+              <div dangerouslySetInnerHTML={{ __html: productRecommendation.productInfo.paymentConditions + ' sem juros' }}></div>
             </div>
           </div>
         )
@@ -86,12 +84,14 @@ class App extends Component {
         let reference = objProducts.reference.item;
 
         product.push(
-          <div key={reference.businessId.toString()} className="App-box txt-center">
-            <div className="">
+          <div key={reference.businessId.toString()}>
+            <div className="App-title"><h2>Você visitou</h2></div>
+
+            <div className="App-box txt-center">
               <img src={reference.imageName} alt="" className="App-img" />
               <label>{reference.name}</label>
               <div className="mt-10">
-                De: {reference.oldPrice} <br />
+                De: {reference.oldPrice}
               </div>
               <div className="text-red">
                 Por: {reference.price}
@@ -104,6 +104,12 @@ class App extends Component {
     }
 
     return product
+  }
+
+  title = () => {
+    if (this.state.items.recommendation) {
+      return <div className="App-title"><h2>e talvez se interesse por:</h2></div>
+    }
   }
 
   render() {
@@ -119,12 +125,13 @@ class App extends Component {
     return (
       <div>
 
-        <header className="App-header">
-          <h2>Products</h2>
-
-          <div className="App-search">
-            <input type="text" value={this.state.value} onChange={this.handleChange} placeholder="Id Product" />
-            <button onClick={this.getProduct}>Go</button>
+        <header>
+          <div className="topnav">
+            <a className="active">Home</a>
+            <div className="search-container">
+              <input type="text" value={this.state.value} onChange={this.handleChange} placeholder="Id Product" />
+              <button type="button" onClick={this.getProduct}>Go</button>
+            </div>
           </div>
         </header>
 
@@ -132,6 +139,9 @@ class App extends Component {
           <div className="App-main">
             {this.listReference()}
           </div>
+
+          {this.title()}
+
           <Slider {...settings} className="App-menu">
             {this.listProducts()}
           </Slider>
