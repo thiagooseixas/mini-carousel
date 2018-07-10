@@ -1,0 +1,43 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.container {
+  padding: 40px;
+}
+
+.txt-center {
+  text-align: center
+}
+
+.text-red {
+  color: red
+}
+
+input {
+  font-size: 20px;
+  padding: 5px 10px;
+  margin: 20px 0;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+button {
+  width: 20%;
+  border-radius: 5px;
+  background-color: #956be0;
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  height: 2.3rem;
+}
+
+button:hover {
+  background-color: #47287d;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
