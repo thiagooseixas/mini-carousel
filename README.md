@@ -18,7 +18,11 @@ cd api && npm start
 ### Running Web app
 
 ```
-cd web && npm start
+cd web && npm install
+```
+
+```
+npm start
 ```
 enjoy
 
