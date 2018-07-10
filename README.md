@@ -1,6 +1,6 @@
 # mini-carousel
 
-Mini project to build carousel of products
+Mini project to build carousel of products without frameworks
 
 ## Getting Started
 
