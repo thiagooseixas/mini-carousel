@@ -1,0 +1,23 @@
+# docker-compose.yml
+
+version: '2'
+
+services:
+
+  api:
+    build: ./api
+    command: npm run dev
+    environment:
+      PORT: 3001
+      ports: 3001:3001
+      volumes: ./api:/home/api
+
+  web:
+    build: ./web
+    command: npm start
+    environment:
+      PORT: 3000
+      API_HOST: 'api'
+      API_PORT: 3001
+      ports: 3000:3000
+      depends_on: api
